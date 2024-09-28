@@ -1,10 +1,13 @@
+import {useEffect} from "react";
 import {useFonts} from 'expo-font';
 import {SplashScreen, Stack} from 'expo-router';
-import 'react-native-reanimated';
-import {useEffect} from "react";
+import "react-native-url-polyfill/auto";
+
 import GlobalProvider from "@/context/global-provider";
 
-export default function RootLayout() {
+SplashScreen.preventAutoHideAsync();
+
+const RootLayout = () => {
     const [fontsLoaded, error] = useFonts({
         "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
         "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -39,8 +42,10 @@ export default function RootLayout() {
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                 <Stack.Screen name="(auth)" options={{ headerShown: false }} />
                 <Stack.Screen name="index" options={{ headerShown: false }} />
-                {/*<Stack.Screen name="search/[query]" options={{ headerShown: false }} />*/}
+                <Stack.Screen name="search/[query]" options={{ headerShown: false }} />
             </Stack>
         </GlobalProvider>
     );
 }
+
+export default RootLayout;

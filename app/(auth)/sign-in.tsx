@@ -1,10 +1,11 @@
-import {SafeAreaView} from "react-native-safe-area-context";
+import {useState} from "react";
 import {ScrollView, View, Image, Text, Dimensions, Alert} from "react-native";
-import { images } from "../../constants";
+import {Link, router} from "expo-router";
+import {SafeAreaView} from "react-native-safe-area-context";
+
+import { images } from "@/constants";
 import FormField from "@/components/form-field";
 import CustomButton from "@/components/custom-bottom";
-import {Link, router} from "expo-router";
-import {useState} from "react";
 import {getCurrentUser, signIn} from "@/lib/appwrite";
 import {useGlobalContext} from "@/context/global-provider";
 
@@ -41,7 +42,7 @@ const SignIn = () => {
     return (
         <SafeAreaView className={"bg-primary h-full"}>
             <ScrollView>
-                <View className="w-full flex justify-center min-h-[83vh] px-4 my-6"
+                <View className="w-full flex justify-center h-full px-4 my-6"
                       style={{
                           minHeight: Dimensions.get("window").height - 100,
                       }}>

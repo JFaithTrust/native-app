@@ -1,5 +1,7 @@
-export interface CreateUserProps {
-    email: string,
-    password: string,
-    username: string
+export interface UserType {
+    id: string;
+    username: string;
+    email: string;
+    avatarUrl: string;
+    accountId: string;
 }
